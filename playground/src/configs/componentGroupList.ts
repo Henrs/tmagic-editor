@@ -17,8 +17,32 @@ export default [
     ],
   },
   {
-    title: '示例组件',
+    title: '基础组件',
     items: [
+      {
+        icon: Tickets,
+        text: 'UIView',
+        type: 'view',
+      },
+
+      {
+        icon: Tickets,
+        text: 'UILabel',
+        type: 'label',
+      },
+
+      {
+        icon: Tickets,
+        text: 'UIButton',
+        type: 'text',
+      },
+
+      {
+        icon: PictureFilled,
+        text: 'UIImageView',
+        type: 'img',
+      },
+
       {
         icon: Tickets,
         text: '文本',

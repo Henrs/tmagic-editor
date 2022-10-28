@@ -1,12 +1,12 @@
 <template>
-  <p>dasdasda</p>
+  <p>随便写一点点</p>
   <div
     v-if="display()"
     :id="`${config.id || ''}`"
     :class="`magic-ui-container magic-layout-${config.layout}${config.className ? ` ${config.className}` : ''}`"
     :style="style"
   >
-    <slot></slot>
+    <slot>描述</slot>
     <magic-ui-component v-for="item in config.items" :key="item.id" :config="item"></magic-ui-component>
   </div>
 </template>
