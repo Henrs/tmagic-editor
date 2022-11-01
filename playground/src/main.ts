@@ -16,6 +16,10 @@
  * limitations under the License.
  */
 
+/*
+ * app的主入口, 使用了monaco-editor web代码编辑器
+ * **/
+
 import { createApp } from 'vue';
 import ElementPlus from 'element-plus';
 import zhCn from 'element-plus/es/locale/lang/zh-cn';
@@ -60,6 +64,7 @@ globalThis.MonacoEnvironment = {
 monaco.languages.typescript.typescriptDefaults.setEagerModelSync(true);
 
 const app = createApp(App);
+// app.use 用于注册全局使用的组件
 app.use(router);
 app.use(ElementPlus, {
   locale: zhCn,
@@ -68,4 +73,5 @@ app.use(TMagicDesign, MagicElementPlusAdapter);
 app.use(MagicEditor);
 app.use(MagicForm);
 app.use(MagicTable);
+// 装载APP
 app.mount('#app');

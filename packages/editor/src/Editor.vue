@@ -1,4 +1,5 @@
 <template>
+  <!--  这个就是m-editor组件-->
   <framework :code-options="codeOptions">
     <template #nav>
       <slot name="nav" :editorService="editorService"><nav-menu :data="menu"></nav-menu></slot>
@@ -48,7 +49,7 @@
         </workspace>
       </slot>
     </template>
-
+    <!--右侧的属性面板-->
     <template #props-panel>
       <slot name="props-panel">
         <props-panel @mounted="(instance: any) => $emit('props-panel-mounted', instance)">

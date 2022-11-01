@@ -40,7 +40,6 @@ const init = async () => {
     curFormConfig.value = [];
     return;
   }
-
   const type = node.value.type || (node.value.items ? 'container' : 'text');
   curFormConfig.value = (await services?.propsService.getPropsConfig(type)) || [];
   values.value = node.value;

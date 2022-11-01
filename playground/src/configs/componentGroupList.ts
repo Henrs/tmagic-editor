@@ -1,4 +1,4 @@
-import { FolderOpened, Grid, PictureFilled, SwitchButton, Tickets } from '@element-plus/icons-vue';
+import { FolderOpened, PictureFilled, Tickets } from '@element-plus/icons-vue';
 
 export default [
   {
@@ -43,26 +43,26 @@ export default [
         type: 'img',
       },
 
-      {
-        icon: Tickets,
-        text: '文本',
-        type: 'text',
-      },
-      {
-        icon: SwitchButton,
-        text: '按钮',
-        type: 'button',
-      },
-      {
-        icon: PictureFilled,
-        text: '图片',
-        type: 'img',
-      },
-      {
-        icon: Grid,
-        text: '二维码',
-        type: 'qrcode',
-      },
+      // {
+      //   icon: Tickets,
+      //   text: '文本',
+      //   type: 'text',
+      // },
+      // {
+      //   icon: SwitchButton,
+      //   text: '按钮',
+      //   type: 'button',
+      // },
+      // {
+      //   icon: PictureFilled,
+      //   text: '图片',
+      //   type: 'img',
+      // },
+      // {
+      //   icon: Grid,
+      //   text: '二维码',
+      //   type: 'qrcode',
+      // },
     ],
   },
   {

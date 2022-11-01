@@ -1,4 +1,5 @@
 <template>
+  <!--  整个主要的页面和一些基础配置-->
   <div class="editor-app">
     <m-editor
       v-model="value"
@@ -72,7 +73,7 @@ const menu: MenuBarData = {
   left: [
     {
       type: 'text',
-      text: '魔方',
+      text: 'iOSUI布局辅助工具',
     },
   ],
   center: ['delete', 'undo', 'redo', 'guides', 'rule', 'zoom'],
@@ -127,7 +128,7 @@ const menu: MenuBarData = {
     },
   ],
 };
-
+// 可移动的组件配置,这里判断了是不是page page是不移动的
 const moveableOptions = (core?: StageCore): MoveableOptions => {
   const options: MoveableOptions = {};
   const id = core?.dr?.target?.id;
@@ -146,7 +147,7 @@ const moveableOptions = (core?: StageCore): MoveableOptions => {
 
   return options;
 };
-
+// 保存页面
 const save = () => {
   localStorage.setItem(
     'magicDSL',
