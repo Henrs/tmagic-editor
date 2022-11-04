@@ -53,22 +53,29 @@ const { VITE_RUNTIME_PATH, VITE_ENTRY_PATH } = import.meta.env;
 
 const runtimeUrl = `${VITE_RUNTIME_PATH}/playground/index.html`;
 const router = useRouter();
+// ref 是响应式编程的api 类似rxswift 的 behaviorreplay
 const editor = ref<InstanceType<typeof TMagicEditor>>();
 const previewVisible = ref(false);
+// 首页默认的dsl
 const value = ref(dsl);
+// 默认选择的节点
 const defaultSelected = ref(dsl.items[0].id);
+// 空的键值属性
 const propsValues = ref<Record<string, any>>({});
+// 初始化空的属性配置
 const propsConfigs = ref<Record<string, any>>({});
+// 初始化空的事件方法
 const eventMethodList = ref<Record<string, any>>({});
+// 限制滑步的默认大小
 const stageRect = ref({
   width: 375,
   height: 817,
 });
-
+// 预览页面地址
 const previewUrl = computed(
   () => `${VITE_RUNTIME_PATH}/page/index.html?localPreview=1&page=${editor.value?.editorService.get('page').id}`,
 );
-
+// 顶部导航栏工具条
 const menu: MenuBarData = {
   left: [
     {

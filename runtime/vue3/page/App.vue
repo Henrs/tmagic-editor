@@ -13,7 +13,7 @@ export default defineComponent({
   setup() {
     const app = inject<Core | undefined>('app');
     const pageConfig = reactive(app?.page?.data || {});
-
+    console.log('页面初始化配置', pageConfig);
     return {
       pageConfig,
     };

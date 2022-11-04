@@ -103,6 +103,7 @@ export const injectStyle = (doc: Document, style: string) => {
 };
 
 export const createDiv = ({ className, cssText }: { className: string; cssText: string }) => {
+  console.log('创建div', className, cssText);
   const el = globalThis.document.createElement('div');
   el.className = className;
   el.style.cssText = cssText;

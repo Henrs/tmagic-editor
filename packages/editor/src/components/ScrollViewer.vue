@@ -3,7 +3,7 @@
     <div ref="el" :style="style">
       <slot></slot>
     </div>
-
+    <!-- 垂直和水平滚动条-->
     <ScrollBar
       v-if="scrollHeight > wrapHeight"
       :scroll-size="scrollHeight"

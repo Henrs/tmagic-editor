@@ -90,7 +90,7 @@ export default defineComponent({
       },
 
       update({ config, parentId }: UpdateData) {
-        console.log('update config', config);
+        console.log('update config layout', config);
 
         if (!root.value) throw new Error('error');
 

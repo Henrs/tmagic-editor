@@ -107,9 +107,14 @@ const doAction = async (
  *  });
  */
 export default class extends EventEmitter {
+  // Record就是ts的数组
+  // 插件列表
   private pluginOptionsList: Record<string, Function[]> = {};
+  // 中间间列表
   private middleware: Record<string, Function[]> = {};
+  // 任务列表
   private taskList: (() => Promise<void>)[] = [];
+  // 正在执行的任务
   private doingTask = false;
 
   constructor(methods: string[] = [], serialMethods: string[] = []) {
@@ -157,18 +162,20 @@ export default class extends EventEmitter {
     });
   }
 
+  // 更新中间件
   public use(options: Record<string, Function>) {
     Object.entries(options).forEach(([methodName, method]: [string, Function]) => {
       if (typeof method === 'function') this.middleware[methodName].push(method);
     });
   }
 
+  // 使用插件
   public usePlugin(options: Record<string, Function>) {
     Object.entries(options).forEach(([methodName, method]: [string, Function]) => {
       if (typeof method === 'function') this.pluginOptionsList[methodName].push(method);
     });
   }
-
+  // 循环执行任务
   private async doTask() {
     this.doingTask = true;
     let task = this.taskList.shift();

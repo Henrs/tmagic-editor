@@ -31,7 +31,7 @@ import { getLocalConfig } from './utils';
 const magicApp = createApp(AppComponent);
 
 magicApp.use(request);
-
+// 注册组件
 Object.entries(components).forEach(([type, component]: [string, any]) => {
   magicApp.component(
     `magic-ui-${type}`,

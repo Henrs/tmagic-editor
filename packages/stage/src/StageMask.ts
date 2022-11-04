@@ -31,7 +31,7 @@ const throttleTime = 100;
 const hideScrollbar = () => {
   injectStyle(globalThis.document, `.${wrapperClassName}::-webkit-scrollbar { width: 0 !important; display: none }`);
 };
-
+// 创建mask的 div
 const createContent = (): HTMLDivElement =>
   createDiv({
     className: 'editor-mask',

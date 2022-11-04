@@ -1,13 +1,14 @@
 <template>
   <div class="m-editor-workspace" tabindex="-1" ref="workspace">
+    <!--    中间滑步左上角-->
     <Breadcrumb></Breadcrumb>
-
+    <!-- 中间画布-->
     <slot name="stage">
       <MagicStage :key="page?.id"></MagicStage>
     </slot>
-
+    <!-- 画布右上角选择机型-->
     <slot name="workspace-content"></slot>
-
+    <!-- 画面底部选择-->
     <PageBar>
       <template #page-bar-title="{ page }"><slot name="page-bar-title" :page="page"></slot></template>
       <template #page-bar-popover="{ page }"><slot name="page-bar-popover" :page="page"></slot></template>

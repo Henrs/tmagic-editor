@@ -143,6 +143,9 @@ class App extends EventEmitter {
   public setConfig(config: MApp, curPage?: Id) {
     this.codeDsl = config.codeBlocks;
     this.pages = new Map();
+    console.log('dsl');
+    console.log(config);
+    console.log(this.codeDsl);
     config.items?.forEach((page) => {
       this.pages.set(
         page.id,

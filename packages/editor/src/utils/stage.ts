@@ -59,6 +59,7 @@ export const useStage = (stageOptions: StageOptions) => {
   });
 
   stage.on('update', (ev: UpdateEventData) => {
+    console.log('更新节点布局');
     if (ev.parentEl) {
       for (const data of ev.data) {
         editorService.moveToContainer({ id: data.el.id, style: data.style }, ev.parentEl.id);

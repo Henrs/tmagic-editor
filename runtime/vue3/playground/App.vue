@@ -27,6 +27,7 @@ export default defineComponent({
     );
 
     const designWidth = document.documentElement.getBoundingClientRect().width;
+    console.log('playground 设计宽度', designWidth);
     const app = new Core({
       designWidth,
       config: root.value,
@@ -39,6 +40,7 @@ export default defineComponent({
 
     watch(pageConfig, async () => {
       await nextTick();
+      console.log('观察到页面变化', pageConfig);
       const page = document.querySelector<HTMLElement>('.magic-ui-page');
       page && window.magic.onPageElUpdate(page);
     });
@@ -88,8 +90,7 @@ export default defineComponent({
       },
 
       update({ config, parentId }: UpdateData) {
-        console.log('update config', config);
-
+        console.log('update config layout', config);
         if (!root.value) throw new Error('error');
         const node = getNodePath(config.id, [root.value]).pop();
 
@@ -99,6 +100,7 @@ export default defineComponent({
         if (!node) throw new Error('未找到目标节点');
         if (!parent) throw new Error('未找到父节点');
         const index = parent.items?.findIndex((child: MNode) => child.id === node.id);
+        // 相当于从parent的item中替换了None, 替换后触发了页面的布局更新 why?
         parent.items.splice(index, 1, reactive(config));
       },
 

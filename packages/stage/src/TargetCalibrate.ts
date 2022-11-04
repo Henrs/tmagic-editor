@@ -48,6 +48,7 @@ export default class TargetCalibrate extends EventEmitter {
   }
 
   public update(el: HTMLElement, prefix: String): HTMLElement {
+    console.log('手动更新');
     const { left, top } = this.getOffset(el);
     const { transform } = getComputedStyle(el);
     this.operationEl.style.cssText = `

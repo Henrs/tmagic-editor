@@ -58,6 +58,7 @@ class Editor extends BaseService {
   });
   private isHistoryStateChange = false;
 
+  // 构建方案和串行方法
   constructor() {
     super(
       [
@@ -191,7 +192,7 @@ class Editor extends BaseService {
       return Layout.RELATIVE;
     }
 
-    return Layout.ABSOLUTE;
+    return Layout.RELATIVE;
   }
 
   /**
@@ -444,22 +445,24 @@ class Editor extends BaseService {
   }
 
   public async doUpdate(config: MNode) {
+    // 更新节点信息,没有id抛出错误
     if (!config?.id) throw new Error('没有配置或者配置缺少id值');
-
+    // 获取节点信息
     const info = this.getNodeInfo(config.id, false);
+    // 这个节点信息包含了页面 节点,和父亲节点
 
     if (!info.node) throw new Error(`获取不到id为${config.id}的节点`);
-
+    // 深拷贝了节点
     const node = cloneDeep(toRaw(info.node));
-
+    console.log(node);
     let newConfig = await this.toggleFixedPosition(toRaw(config), node, this.get<MApp>('root'));
-
+    console.log(newConfig);
     newConfig = mergeWith(cloneDeep(node), newConfig, (objValue, srcValue) => {
       if (Array.isArray(srcValue)) {
         return srcValue;
       }
     });
-
+    console.log(newConfig);
     if (!newConfig.type) throw new Error('配置缺少type值');
 
     if (newConfig.type === NodeType.ROOT) {
@@ -512,8 +515,11 @@ class Editor extends BaseService {
   public async update(config: MNode | MNode[]): Promise<MNode | MNode[]> {
     const nodes = Array.isArray(config) ? config : [config];
 
+    console.log('更新节点');
+    console.log(config);
     const newNodes = await Promise.all(nodes.map((node) => this.doUpdate(node)));
 
+    // 后面这个两个似乎跟面板展示无关
     this.pushHistoryState();
 
     this.emit('update', newNodes);

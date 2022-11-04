@@ -61,6 +61,7 @@ watchEffect(() => {
 const submit = async () => {
   try {
     const values = await configForm.value?.submitForm();
+    console.log('面板属性改变');
     services?.editorService.update(values);
   } catch (e: any) {
     console.error(e);

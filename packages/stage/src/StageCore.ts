@@ -142,6 +142,7 @@ export default class StageCore extends EventEmitter {
     // 要先触发select，在触发update
     this.dr
       .on('update', (data: UpdateEventData) => {
+        console.log('更新节点布局1');
         setTimeout(() => this.emit('update', data));
       })
       .on('sort', (data: UpdateEventData) => {
@@ -153,6 +154,7 @@ export default class StageCore extends EventEmitter {
 
     this.multiDr
       .on('update', (data: UpdateEventData) => {
+        console.log('更新节点布局2');
         setTimeout(() => this.emit('update', data));
       })
       .on('select', async (id: Id) => {
@@ -253,9 +255,11 @@ export default class StageCore extends EventEmitter {
    * @param data 更新的数据
    */
   public update(data: UpdateData): Promise<void> {
+    console.log('更新选中的节点');
+    console.log(data);
     const { config } = data;
-
     return this.renderer?.getRuntime().then((runtime) => {
+      // runtime update 函数,是用来更新布局的接口
       runtime?.update?.(data);
       // 更新配置后，需要等组件渲染更新
       setTimeout(() => {

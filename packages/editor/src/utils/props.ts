@@ -32,30 +32,6 @@ export const fillConfig = (config: FormConfig = []) => [
     type: 'tab',
     items: [
       {
-        title: '属性',
-        labelWidth: '80px',
-        items: [
-          // 组件类型，必须要有
-          {
-            text: 'type',
-            name: 'type',
-            type: 'hidden',
-          },
-          // 组件id，必须要有
-          {
-            name: 'id',
-            type: 'display',
-            text: 'id',
-          },
-          {
-            name: 'name',
-            text: '组件名称',
-          },
-          ...config,
-        ],
-      },
-
-      {
         title: 'Flex布局',
         labelWidth: '80px',
         items: [
@@ -90,23 +66,23 @@ export const fillConfig = (config: FormConfig = []) => [
                     type: 'select',
                     text: 'flexDirection',
                     name: 'flexDirection',
-                    defaultValue: 3,
+                    defaultValue: 'column',
                     options: [
                       {
                         text: 'row',
-                        value: 1,
+                        value: 'row',
                       },
                       {
                         text: 'rowReverse',
-                        value: 2,
+                        value: 'row-reverse',
                       },
                       {
                         text: 'column',
-                        value: 3,
+                        value: 'column',
                       },
                       {
                         text: 'columnReverse',
-                        value: 4,
+                        value: 'column-reverse',
                       },
                     ],
                   },
@@ -114,41 +90,41 @@ export const fillConfig = (config: FormConfig = []) => [
                     type: 'select',
                     text: 'flexWrap',
                     name: 'flexWrap',
-                    defaultValue: 1,
+                    defaultValue: 'nowrap',
                     options: [
                       {
                         text: 'noWrap',
-                        value: 1,
+                        value: 'nowrap',
                       },
                       {
                         text: 'wrap',
-                        value: 2,
+                        value: 'wrap',
                       },
                       {
                         text: 'wrapReverse',
-                        value: 3,
+                        value: 'wrap-reverse',
                       },
                     ],
                   },
                   {
                     text: 'flexBasis',
                     name: 'flexBasis',
-                    defaultValue: 'auto',
+                    defaultValue: '',
                   },
                   {
                     text: 'flexGrow',
                     name: 'flexGrow',
-                    defaultValue: 'auto',
+                    defaultValue: '',
                   },
                   {
                     text: 'flexShrink',
                     name: 'flexShrink',
-                    defaultValue: 'auto',
+                    defaultValue: '',
                   },
                   {
                     text: 'flex',
                     name: 'flex',
-                    defaultValue: 'auto',
+                    defaultValue: '',
                   },
                 ],
               },
@@ -160,31 +136,31 @@ export const fillConfig = (config: FormConfig = []) => [
                     type: 'select',
                     text: 'justifyContent',
                     name: 'justifyContent',
-                    defaultValue: 1,
+                    defaultValue: 'flex-start',
                     options: [
                       {
                         text: 'flex start',
-                        value: 1,
+                        value: 'flex-start',
                       },
                       {
                         text: 'center',
-                        value: 2,
+                        value: 'center',
                       },
                       {
                         text: 'flex end',
-                        value: 3,
+                        value: 'flex-end',
                       },
                       {
                         text: 'space between',
-                        value: 4,
+                        value: 'space-between',
                       },
                       {
                         text: 'space around',
-                        value: 5,
+                        value: 'space-around',
                       },
                       {
                         text: 'space evenly',
-                        value: 6,
+                        value: 'space-evenly',
                       },
                     ],
                   },
@@ -192,39 +168,39 @@ export const fillConfig = (config: FormConfig = []) => [
                     type: 'select',
                     text: 'alignItems',
                     name: 'alignItems',
-                    defaultValue: 1,
+                    defaultValue: 'initial',
                     options: [
                       {
                         text: 'auto',
-                        value: 1,
+                        value: 'initial',
                       },
                       {
                         text: 'flex start',
-                        value: 2,
+                        value: 'flex-start',
                       },
                       {
                         text: 'center',
-                        value: 3,
+                        value: 'center',
                       },
                       {
                         text: 'flex end',
-                        value: 4,
+                        value: 'flex-end',
                       },
                       {
                         text: 'stretch',
-                        value: 5,
+                        value: 'stretch',
                       },
                       {
                         text: 'baseline',
-                        value: 6,
+                        value: 'baseline',
                       },
                       {
                         text: 'space evenly',
-                        value: 7,
+                        value: 'space-evenly',
                       },
                       {
                         text: 'space around',
-                        value: 8,
+                        value: 'space-around',
                       },
                     ],
                   },
@@ -232,39 +208,39 @@ export const fillConfig = (config: FormConfig = []) => [
                     type: 'select',
                     text: 'alignSelf',
                     name: 'alignSelf',
-                    defaultValue: 1,
+                    defaultValue: 'initial',
                     options: [
                       {
                         text: 'auto',
-                        value: 1,
+                        value: 'initial',
                       },
                       {
                         text: 'flex start',
-                        value: 2,
+                        value: 'flex-start',
                       },
                       {
                         text: 'center',
-                        value: 3,
+                        value: 'center',
                       },
                       {
                         text: 'flex end',
-                        value: 4,
+                        value: 'flex-end',
                       },
                       {
                         text: 'stretch',
-                        value: 5,
+                        value: 'stretch',
                       },
                       {
                         text: 'baseline',
-                        value: 6,
+                        value: 'baseline',
                       },
                       {
                         text: 'space evenly',
-                        value: 7,
+                        value: 'space-evenly',
                       },
                       {
                         text: 'space around',
-                        value: 8,
+                        value: 'space-around',
                       },
                     ],
                   },
@@ -272,39 +248,39 @@ export const fillConfig = (config: FormConfig = []) => [
                     type: 'select',
                     text: 'alignContent',
                     name: 'alignContent',
-                    defaultValue: 1,
+                    defaultValue: 'initial',
                     options: [
                       {
                         text: 'auto',
-                        value: 1,
+                        value: 'initial',
                       },
                       {
                         text: 'flex start',
-                        value: 2,
+                        value: 'flex-start',
                       },
                       {
                         text: 'center',
-                        value: 3,
+                        value: 'center',
                       },
                       {
                         text: 'flex end',
-                        value: 4,
+                        value: 'flex-end',
                       },
                       {
                         text: 'stretch',
-                        value: 5,
+                        value: 'stretch',
                       },
                       {
                         text: 'baseline',
-                        value: 6,
+                        value: 'baseline',
                       },
                       {
                         text: 'space evenly',
-                        value: 7,
+                        value: 'space-evenly',
                       },
                       {
                         text: 'space around',
-                        value: 8,
+                        value: 'space-around',
                       },
                     ],
                   },
@@ -317,37 +293,37 @@ export const fillConfig = (config: FormConfig = []) => [
                   {
                     text: 'width',
                     name: 'width',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'height',
                     name: 'height',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'maxWidth',
                     name: 'maxWidth',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'maxHeight',
                     name: 'maxHeight',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'minWidth',
                     name: 'minWidth',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'minHeight',
                     name: 'minHeight',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'aspectRatio',
                     name: 'aspectRatio',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                 ],
               },
@@ -358,22 +334,22 @@ export const fillConfig = (config: FormConfig = []) => [
                   {
                     text: 'left',
                     name: 'paddingLeft',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'right',
                     name: 'paddingRight',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'top',
                     name: 'paddingTop',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'bottom',
                     name: 'paddingBottom',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                 ],
               },
@@ -384,22 +360,22 @@ export const fillConfig = (config: FormConfig = []) => [
                   {
                     text: 'left',
                     name: 'borderLeft',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'right',
                     name: 'borderRight',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'top',
                     name: 'borderTop',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'bottom',
                     name: 'borderBottom',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                 ],
               },
@@ -410,22 +386,22 @@ export const fillConfig = (config: FormConfig = []) => [
                   {
                     text: 'left',
                     name: 'marginLeft',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'right',
                     name: 'marginRight',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'top',
                     name: 'marginTop',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'bottom',
                     name: 'marginBottom',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                 ],
               },
@@ -452,22 +428,22 @@ export const fillConfig = (config: FormConfig = []) => [
                   {
                     text: 'left',
                     name: 'positionLeft',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'right',
                     name: 'positionRight',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'top',
                     name: 'positionTop',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                   {
                     text: 'bottom',
                     name: 'positionBottom',
-                    defaultValue: 'none',
+                    defaultValue: '',
                   },
                 ],
               },
@@ -599,6 +575,29 @@ export const fillConfig = (config: FormConfig = []) => [
               },
             ],
           },
+        ],
+      },
+      {
+        title: '属性',
+        labelWidth: '80px',
+        items: [
+          // 组件类型，必须要有
+          {
+            text: 'type',
+            name: 'type',
+            type: 'hidden',
+          },
+          // 组件id，必须要有
+          {
+            name: 'id',
+            type: 'display',
+            text: 'id',
+          },
+          {
+            name: 'name',
+            text: '组件名称',
+          },
+          ...config,
         ],
       },
       // {
