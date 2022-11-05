@@ -413,15 +413,15 @@ export const fillConfig = (config: FormConfig = []) => [
                     type: 'select',
                     text: 'position',
                     name: 'position',
-                    defaultValue: 1,
+                    defaultValue: 'relative',
                     options: [
                       {
                         text: 'relative',
-                        value: 1,
+                        value: 'relative',
                       },
                       {
                         text: 'absolute',
-                        value: 2,
+                        value: 'absolute',
                       },
                     ],
                   },

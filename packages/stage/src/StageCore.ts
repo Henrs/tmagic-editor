@@ -297,6 +297,7 @@ export default class StageCore extends EventEmitter {
   }
 
   public add(data: UpdateData): Promise<void> {
+    console.log('添加节点2', data);
     return this.renderer?.getRuntime().then((runtime) => runtime?.add?.(data));
   }
 

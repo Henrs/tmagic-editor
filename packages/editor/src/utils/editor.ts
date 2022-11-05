@@ -227,6 +227,8 @@ export const fixNodeLeft = (config: MNode, parent: MContainer, doc?: Document) =
 };
 
 export const fixNodePosition = (config: MNode, parent: MContainer, stage: StageCore | null) => {
+  console.log('修复前的position', config.style);
+  console.log('修复前的position', config.style?.position);
   if (config.style?.position !== 'absolute') {
     return config.style;
   }

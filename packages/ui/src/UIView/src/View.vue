@@ -1,12 +1,11 @@
 <template>
-  <p>随便写一点点</p>
   <div
     v-if="display()"
     :id="`${config.id || ''}`"
     :class="`magic-ui-container magic-layout-${config.layout}${config.className ? ` ${config.className}` : ''}`"
     :style="style"
   >
-    <slot>描述</slot>
+    <slot></slot>
     <magic-ui-component v-for="item in config.items" :key="item.id" :config="item"></magic-ui-component>
   </div>
 </template>
@@ -37,10 +36,8 @@ export default defineComponent({
 
     return {
       style: computed(() => app?.transformStyle(props.config.style || {})),
-
       display: () => {
         const displayCfg = props.config?.display;
-
         if (typeof displayCfg === 'function') {
           return displayCfg(app);
         }

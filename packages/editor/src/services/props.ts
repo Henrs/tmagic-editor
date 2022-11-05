@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-import { reactive } from 'vue';
+import { reactive, toRaw } from 'vue';
 import { cloneDeep, mergeWith } from 'lodash-es';
 
 import type { FormConfig } from '@tmagic/form';
@@ -92,6 +92,7 @@ class Props extends BaseService {
    * @param value 组件初始值
    */
   public setPropsValue(type: string, value: MNode) {
+    console.log('设置初始值,', type, value.style);
     this.state.propsValueMap[type] = value;
   }
 
@@ -110,7 +111,7 @@ class Props extends BaseService {
       }
       return value;
     }
-
+    console.log('属性的默认值', defaultValue);
     const [id, defaultPropsValue, data] = await Promise.all([
       this.createId(type),
       this.getDefaultPropsValue(type),
@@ -121,7 +122,16 @@ class Props extends BaseService {
         } as any),
       ),
     ]);
+    console.log('属性的默认值2', this.state.propsValueMap[type].style);
+    console.log('属性的默认值2', defaultPropsValue);
+    console.log('属性的默认值2', data);
+    const a = toRaw({
+      id,
+      ...defaultPropsValue,
+      ...mergeWith({}, cloneDeep(this.state.propsValueMap[type] || {}), data),
+    });
 
+    console.log('属性的默认值2', a);
     return {
       id,
       ...defaultPropsValue,

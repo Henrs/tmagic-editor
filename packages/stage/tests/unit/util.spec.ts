@@ -60,6 +60,7 @@ Object.defineProperties(globalThis.HTMLElement.prototype, {
 });
 
 const createElement = () => {
+  console.log('创建节点1');
   const el = globalThis.document.createElement('div');
   el.style.cssText = `width: 100px; height: 100px; position: absolute; left: 100px; top: 100px;`;
   return el;

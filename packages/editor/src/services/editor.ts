@@ -292,6 +292,9 @@ class Editor extends BaseService {
     this.set('nodes', nodes);
   }
 
+  /*
+   * 添加节点到父节点
+   * */
   public async doAdd(node: MNode, parent: MContainer): Promise<MNode> {
     const root = this.get<MApp>('root');
     const curNode = this.get<MNode>('node');
@@ -309,8 +312,9 @@ class Editor extends BaseService {
       parent?.items?.push(node);
     }
 
-    const layout = await this.getLayout(toRaw(parent), node as MNode);
-    node.style = getInitPositionStyle(node.style, layout);
+    // 此处layout要求跟随父节点的layout 移除
+    // const layout = await this.getLayout(toRaw(parent), node as MNode);
+    node.style = getInitPositionStyle(node.style, Layout.RELATIVE);
 
     await stage?.add({
       config: cloneDeep(node),
@@ -321,6 +325,7 @@ class Editor extends BaseService {
 
     const newStyle = fixNodePosition(node, parent, stage);
 
+    console.log('修复后的新的样式', newStyle);
     if (newStyle && (newStyle.top !== node.style.top || newStyle.left !== node.style.left)) {
       node.style = newStyle;
       await stage?.update({ config: cloneDeep(node), parentId: parent.id, root: cloneDeep(root) });
@@ -346,14 +351,15 @@ class Editor extends BaseService {
       const { type, inputEvent, ...config } = addNode;
 
       if (!type) throw new Error('组件类型不能为空');
-
+      console.log('添加单个节点', addNode, type);
       addNodes.push({ ...toRaw(await propsService.getPropsValue(type, config)) });
     } else {
       addNodes.push(...addNode);
     }
-
+    console.log('添加的节点', addNodes[0]);
     const newNodes = await Promise.all(
       addNodes.map((node) => {
+        console.log('修改新添加的节点', node);
         const parentNode = parent && typeof parent !== 'function' ? parent : getAddParent(node);
         if (!parentNode) throw new Error('未找到父元素');
         return this.doAdd(node, parentNode);
