@@ -29,6 +29,11 @@
     >
       <iframe v-if="previewVisible" width="100%" :height="stageRect && stageRect.height" :src="previewUrl"></iframe>
     </el-dialog>
+
+    <el-dialog v-model="resultVisible" title="result" append-to-body>
+      <pre><code class="language-javascript hljs" v-html="result"></code></pre>
+    </el-dialog>
+
   </div>
 </template>
 
@@ -75,6 +80,9 @@ const stageRect = ref({
 const previewUrl = computed(
   () => `${VITE_RUNTIME_PATH}/page/index.html?localPreview=1&page=${editor.value?.editorService.get('page').id}`,
 );
+
+const resultVisible = ref(false);
+const result = ref('');
 // 顶部导航栏工具条
 const menu: MenuBarData = {
   left: [
@@ -156,6 +164,7 @@ const moveableOptions = (core?: StageCore): MoveableOptions => {
 };
 // 保存页面
 const save = () => {
+  console.log("保存DSL", toRaw(value.value))
   localStorage.setItem(
     'magicDSL',
     serialize(toRaw(value.value), {

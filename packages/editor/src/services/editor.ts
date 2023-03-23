@@ -101,11 +101,15 @@ class Editor extends BaseService {
     // set nodes时将node设置为nodes第一个元素
     if (name === 'nodes') {
       this.set('node', (value as unknown as MNode[])[0]);
+      console.log("测试更新1",value)
     }
+
     if (name === 'root') {
       this.state.pageLength = (value as unknown as MApp)?.items?.length || 0;
       this.emit('root-change', value);
+      console.log("测试更新2",value)
     }
+    console.log("当前节点:",this.state)
   }
 
   /**

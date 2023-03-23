@@ -2,13 +2,21 @@
   <div class="m-editor">
     <slot name="nav" class="m-editor-nav-menu"></slot>
 
-    <magic-code-editor
-      v-if="showSrc"
-      class="m-editor-content"
-      :init-values="root"
-      :options="codeOptions"
-      @save="saveCode"
-    ></magic-code-editor>
+    <div v-if="showSrc" class="m-editor-code">
+      <magic-code-editor
+        class="m-editor-code-content"
+        :init-values="nodes"
+        :options="codeOptions">
+<!--        @save="saveCode"-->
+      </magic-code-editor>
+
+      <magic-code-editor
+      class="m-editor-code-content"
+      :init-values="nodes"
+      :options="codeOptions">
+<!--      @save="saveCode"-->
+    </magic-code-editor>
+    </div>
 
     <Layout
       v-else
@@ -52,6 +60,7 @@ import { GetColumnWidth, Services } from '../type';
 
 import AddPageBox from './AddPageBox.vue';
 import Layout from './Layout.vue';
+import { cloneDeep } from 'lodash-es';
 
 const DEFAULT_LEFT_COLUMN_WIDTH = 310;
 const DEFAULT_RIGHT_COLUMN_WIDTH = 480;
@@ -131,6 +140,8 @@ const saveCode = (value: string) => {
   try {
     // eslint-disable-next-line no-eval
     editorService?.set('root', eval(value));
+    // let rootValue = editorService?.state['root']
+    // editorService?.set('root',rootValue)
   } catch (e: any) {
     console.error(e);
   }

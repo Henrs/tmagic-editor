@@ -46,7 +46,6 @@ export default {
       name: 'index',
       title: '',
       layout: 'absolute',
-      // layout: 'relative',
       style: {
         display: 'flex',
         position: 'absolute',

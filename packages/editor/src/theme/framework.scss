@@ -3,6 +3,13 @@
   flex-direction: column;
   width: 100%;
 
+  &-code {
+    width: 100%;
+    height: calc(100% - #{$--nav-height});
+    display: flex;
+    flex-direction: row;
+  }
+
   &-content {
     width: 100%;
     height: calc(100% - #{$--nav-height});

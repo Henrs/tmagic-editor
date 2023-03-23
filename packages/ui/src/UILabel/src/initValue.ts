@@ -3,7 +3,7 @@ export default {
   text: '请输入文本内容',
   multiple: true,
   style: {
-    width: '100',
+    width: 'auto',
     height: 'auto',
   },
 };

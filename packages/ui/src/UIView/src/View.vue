@@ -37,6 +37,7 @@ export default defineComponent({
     return {
       style: computed(() => app?.transformStyle(props.config.style || {})),
       display: () => {
+        console.log("UIView 展示", props.config?.style)
         const displayCfg = props.config?.display;
         if (typeof displayCfg === 'function') {
           return displayCfg(app);
