@@ -13,6 +13,7 @@
       <magic-code-editor
       class="m-editor-code-content"
       :init-values="nodes"
+      :language="swift"
       :options="codeOptions">
 <!--      @save="saveCode"-->
     </magic-code-editor>
@@ -78,7 +79,7 @@ const { editorService, uiService } = inject<Services>('services') || {};
 
 const root = computed(() => editorService?.get<MApp>('root'));
 const nodes = computed(() => editorService?.get<Node[]>('nodes') || []);
-
+const swift = "swift"
 const pageLength = computed(() => editorService?.get<number>('pageLength') || 0);
 const showSrc = computed(() => uiService?.get<boolean>('showSrc'));
 
